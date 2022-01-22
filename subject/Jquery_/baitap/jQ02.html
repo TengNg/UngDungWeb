@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <title>Bài tập 2</title>
+</head>
+
+<body>
+   <form action="">
+      <table>
+         <tr>
+            <td>Từ ngày:</td>
+            <td><input id='first-date' type="text"></td>
+         </tr>
+         <tr>
+            <td>Đến ngày:</td>
+            <td><input id='second-date' type="text"></td>
+         </tr>
+         <tr>
+            <td><button id='calcBtn'>Tính số ngày</button></td>
+         </tr>
+      </table>
+   </form>
+   <p id='result'></p>
+   <script>
+      $('#calcBtn').click(function (event) {
+         event.preventDefault()
+         var first = $('#first-date').val()
+         var second = $('#second-date').val()
+         first = new Date(first)
+         second = new Date(second)
+         var dayCount = (second.getTime() - first.getTime()) / (3600 * 1000 * 24)
+         $('#result').text('Số ngày là: ' + dayCount)
+         $('#first-date').val("")
+         $('#second-date').val("")
+      })
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <title>Bài tập 1</title>
+   <style>
+   </style>
+</head>
+
+<body>
+   <form action="">Tên môn học:
+      <input id='input' type="text">
+      <ul id='subjectTable'>
+         <li id='sub1'>PHP</li>
+         <li id='sub2'>Java</li>
+         <li id='sub3'>Python</li>
+      </ul>
+      <button id='submit-btn'>Thêm môn học</button>
+   </form>
+
+   <script>
+      var str = ""
+      const sub1 = $('#sub1')
+      const sub2 = $('#sub2')
+      const sub3 = $('#sub3')
+      const sub_input = document.querySelector('#input')
+      $('#submit-btn').click(function (event) {
+         event.preventDefault()
+         console.log(sub_input.value)
+         if (sub1.text() == sub_input.value)
+            sub1.remove()
+         if (sub2.text() == sub_input.value)
+            sub2.remove()
+         if (sub3.text() == sub_input.value)
+            sub3.remove()
+         sub_input.value = ""
+      })
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 13</title>
+</head>
+
+<body>
+   <h1 id='title'>Thay đổi style</h1>
+   <input id='normal' type="radio">Mặc định <br>
+   <input id='changed' type="radio">Áp dụng style
+   <br><br>
+   <div id='div-background'>
+      Click vào tùy chọn "Mặc định" chuyển về định dạng mặc định <br>
+      Click vào tùy chọn "Áp dụng style" chuyển về định dạng mặc định
+   </div>
+   <script>
+      let titleEl = document.getElementById('title')
+      let div_backgroundEl = document.getElementById('div-background')
+      let normalEl = document.getElementById('normal')
+      let changedEl = document.getElementById('changed')
+      document.getElementById("normal").addEventListener("click", unChange)
+      document.getElementById("changed").addEventListener("click", Change)
+      function unChange() {
+         titleEl.style = div_backgroundEl.style = 'none'
+      }
+      function Change() {
+         titleEl.style.color = 'red'
+         div_backgroundEl.style.backgroundColor = 'blue'
+         div_backgroundEl.style.color = 'yellow'
+         div_backgroundEl.style.fontWeight = 'bold'
+         div_backgroundEl.style.padding = '20px'
+      }
+   </script>
+</body>
+
+</html>

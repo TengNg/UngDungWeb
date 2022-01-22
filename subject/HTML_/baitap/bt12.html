@@ -1,0 +1,64 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Bài tập 12</title>
+</head>
+
+<body>
+	<h1 style="text-align:center">Thông tin đăng ký</h1>
+	<form align:center>
+		<table border="1" style="width:40%; margin-left:auto; margin-right:auto;" bgcolor="lightcyan	">
+			<tr>
+				<td>Họ tên</td>
+				<td><input></td>
+			</tr>
+			<tr>
+				<td>Giới tính</td>
+				<td>
+					<input type="radio">Nam
+					<input type="radio">Nữ
+				</td>
+			</tr>
+			<tr>
+				<td>Ngày sinh</td>
+				<td>
+					<input type="date">
+					<input type="submit">
+				</td>
+			</tr>
+			<tr>
+				<td>Điều bạn quan tâm</td>
+				<td>
+					<input type="checkbox">Kinh tế
+					<input type="checkbox">Xã hội
+					<input type="checkbox">Giải trí
+				</td>
+			</tr>
+			<tr>
+				<td>Địa chỉ</td>
+				<td><textarea rows="4" cols="20"></textarea></td>
+			</tr>
+			<tr>
+				<td>Học vấn</td>
+				<td>
+					<form>
+						<input list="hocvan" name="hocvan">
+						<datalist id="hocvan">
+							<option value="Cao đẳng">
+							<option value="Trung cấp">
+							<option value="Trung học">
+							<option value="Tiếu học">
+						</datalist>
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<th colspan="2">
+					<input type="submit" value="Gửi thông tin">
+					<input type="reset" value="Nhập lại">
+				</th>
+			</tr>
+		</table>
+	</form>
+</body>

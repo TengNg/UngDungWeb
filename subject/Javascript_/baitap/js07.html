@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<body lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bài tập 7</title>
+   </head>
+
+   <body>
+      <h1>ĐĂNG KÝ THÀNH VIÊN</h1>
+      <table border="2" width="30%">
+         <tr>
+            <td>Tên đăng nhập</td>
+            <td><input id='name-el' type="text"></td>
+         </tr>
+         <tr>
+            <td>Mật khẩu</td>
+            <td><input id='pass-el' type="password"></td>
+         </tr>
+         <tr>
+            <td>Ngày sinh</td>
+            <td><input id='birth-el' type="text" placeholder="ví dụ: 10/10/2010"></td>
+         </tr>
+         <tr>
+            <td>Giới tính</td>
+            <td><input id='male-check' type="radio">Nam
+               <input id='female-check' type="radio">Nữ
+            </td>
+         </tr>
+         <tr>
+            <td>Vấn đề bạn quan tâm</td>
+            <td>
+               <input id='care-about' list="l" placeholder="Kinh tế">
+               <datalist id="l">
+                  <option value="Kinh tế"></option>
+                  <option value="Thể thao"></option>
+                  <option value="Văn học nghệ thuật"></option>
+               </datalist>
+            </td>
+         </tr>
+         <tr>
+            <td><button onclick="submit()">Gửi</button></td>
+            <td><button onclick="cancel()">Hủy</button></td>
+         </tr>
+         <tr>
+            <td colspan="2"><textarea id="result" cols="40" rows="10"></textarea></td>
+         </tr>
+      </table>
+      <script>
+         let nameEl = document.getElementById('name-el')
+         let passEl = document.getElementById('pass-el')
+         let birthEl = document.getElementById('birth-el')
+         let maleEl = document.getElementById('male-check')
+         let femaleEl = document.getElementById('female-check')
+         let care_aboutEl = document.getElementById('care-about')
+         let submitEl = document.getElementById('result')
+         const birthCheck = /\d{1,2}\/\d{1,2}\/\d{4}/;
+         function submit() {
+            let str = ""
+            if (nameEl.value == "")
+               str = 'Bạn phải nhập tên'
+            else {
+               str += "Chào mừng " + nameEl.value
+               if (maleEl.checked == true)
+                  str += "\nBạn là Nam"
+               else if (femaleEl.checked == true)
+                  str += "\nBạn là Nữ"
+               else
+                  str += "\nLỗi khi chọn giới tính"
+               str += "\nMật khẩu của bạn có " + (passEl.value).length + " ký tự"
+               let valid = birthCheck.test(birthEl.value);
+               if (valid == true)
+                  str += "\nBạn sinh ngày " + birthEl.value
+               else
+                  str += "\nBạn nhập sai ngày tháng năm sinh"
+               str += "\nVấn đề bạn quan tâm là " + care_aboutEl.value
+            }
+            submitEl.innerHTML = str
+         }
+         function cancel() {
+            nameEl.value = passEl.value = birthEl.value = care_aboutEl.value = ""
+            maleEl.checked = femaleEl.checked = false
+            submitEl.innerHTML = ""
+         }
+      </script>
+   </body>
+
+   </html>

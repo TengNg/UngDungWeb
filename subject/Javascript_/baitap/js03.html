@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 3</title>
+   <style>
+      * {
+         font-family: 'Courier New', Courier, monospace, sans-serif;
+         font-weight: bold;
+      }
+
+      table {
+         width: 300px;
+         height: 100px;
+         text-align: center;
+         padding: 3px;
+         border-collapse: collapse;
+         border: 2px solid black;
+         background-color: bisque;
+      }
+   </style>
+</head>
+
+<body>
+   <h1>CHƯƠNG TRÌNH GIẢI PHƯƠNG TRÌNH BẬC 2</h1>
+   <h3>ax&sup2; + bx + c</h3>
+   <table border="2">
+      <tr>
+         <td>a = </td>
+         <td><input type="text" id="a-num"></td>
+      </tr>
+      <tr>
+         <td>b = </td>
+         <td><input type="text" id="b-num"></td>
+      </tr>
+      <tr>
+         <td>c = </td>
+         <td><input type="text" id="c-num"></td>
+      </tr>
+      <tr>
+         <td></td>
+         <td>
+            <button onclick="giai()">GIẢI</button>
+            <button onclick="xoa()">XÓA</button>
+         </td>
+      </tr>
+   </table>
+   <p>Nghiệm của phương trình: <br><span id='x1-el'></span><br><span id='x2-el'></span></p>
+   <script>
+      let n1 = document.getElementById('x1-el')
+      let n2 = document.getElementById('x2-el')
+      let a_num = document.getElementById('a-num')
+      let b_num = document.getElementById('b-num')
+      let c_num = document.getElementById('c-num')
+      function giai() {
+         var a = a_num.value
+         var b = b_num.value
+         var c = c_num.value
+         let delta = Math.pow(b, 2) - (4 * a * c)
+         if (delta >= 0) {
+            var x1 = (-b - Math.sqrt(delta)) / (2 * a)
+            var x2 = (-b + Math.sqrt(delta)) / (2 * a)
+            var rounded_x1 = x1.toFixed(2)
+            var rounded_x2 = x2.toFixed(2)
+            n1.innerHTML = "x1 = " + rounded_x1
+            n2.innerHTML = "x2 = " + rounded_x2
+         }
+         else {
+            n1.innerHTML = 'Vô nghiệm'
+            n2.innerHTML = ""
+         }
+      }
+      function xoa() {
+         a_num.value = ""
+         b_num.value = ""
+         c_num.value = ""
+         n1.innerHTML = ""
+         n2.innerHTML = ""
+      }
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Thống kê mảng</title>
+   <link rel="stylesheet" href="bt05.css">
+   <style>
+      table {
+         background: pink;
+         width: 100%;
+         font-size: 1.8rem;
+      }
+
+      input {
+         font-size: 1.8rem;
+      }
+
+      #create-array-btn {
+         width: 50%;
+         height: 40px;
+      }
+
+      .right_content div:last-of-type button {
+         font-size: 1.2rem;
+         height: 50px;
+         width: 150px;
+      }
+
+      .right_content div:last-of-type {
+         padding: 5px;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <div class="header">
+         <div class='title1'>GÓC THƯ GIÃN</div>
+         <div class='title2'>Môn học Ứng dụng Web</div>
+      </div>
+      <div class="content">
+         <div class="left_content">
+            <div class="home_page" onclick="window.open('bt05.html')">Trang chủ</div>
+            <div class="change_page" onclick="window.open('thongKeMang.html')">Thống kê mảng</div>
+         </div>
+
+         <div class="right_content">
+            <div class="top">Thống kê mảng</div>
+            <div id='calculate'>
+               <table border='2'>
+                  <tr>
+                     <td width=30%>Nhập số lượng phần tử: </td>
+                     <td><input id='input-array-size' type="text"></td>
+                  </tr>
+                  <tr>
+                     <td style="text-align:center"><button id='create-array-btn'>Tạo mảng</button></td>
+                     <td><textarea style='font-size: 16px' id='main-array' name="text" id="" cols="30"
+                           rows="2"></textarea></td>
+                  </tr>
+               </table>
+            </div>
+            <div style='background:pink'>
+               <button id='delete-even'>Xoá các só chẵn</button>
+               <button id='scroll-left'>Quay trái</button>
+               <button id='scroll-right'>Quay phải</button>
+            </div>
+         </div>
+      </div>
+      <div class="footer">Họ tên sinh viên</div>
+      <script>
+         const inputArraySize = document.getElementById('input-array-size')
+         const createArrayButton = document.getElementById('create-array-btn')
+
+         const array = document.getElementById('main-array')
+
+         const deleteEvenButton = document.getElementById('delete-even')
+         const scrollLeftButton = document.getElementById('scroll-left')
+         const scrollRightButton = document.getElementById('scroll-right')
+
+         let arr = []
+         createArrayButton.addEventListener('click', function () {
+            const n = inputArraySize.value
+            for (let i = 0; i < n; i++) {
+               arr[i] = Math.floor(Math.random() * 50) + 1
+            }
+            array.value = arr
+         })
+
+         deleteEvenButton.addEventListener('click', function () {
+            for (let i = 0; i < arr.length; i++)
+               if (arr[i] % 2 == 0)
+                  arr.splice(i, 1)
+            array.value = arr
+         })
+
+         scrollLeftButton.addEventListener('click', function () {
+            let n = arr.length
+            let first_el = arr[0]
+            arr.splice(0, 1)
+            arr.push(first_el)
+            array.value = arr
+         })
+
+         scrollRightButton.addEventListener('click', function () {
+            let n = arr.length
+            let last_el = arr[n - 1]
+            arr.splice(n - 1, 1)
+            arr.unshift(last_el)
+            array.value = arr
+         })
+
+      </script>
+   </div>
+</body>
+
+</html>

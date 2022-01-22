@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 2</title>
+
+</head>
+
+<body>
+   <h1 id="name"></h1>
+   <h1 id="age"></h1>
+   <script>
+      var inputName = prompt("Tên: ")
+      var inputAge = parseInt(prompt("Năm sinh: "))
+      document.getElementById("name").innerHTML = 'Chào bạn ' + inputName
+      document.getElementById("age").innerHTML = 'Tuổi của bạn là: ' + (2021 - inputAge)
+   </script>
+</body>
+
+</html>

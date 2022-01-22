@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 16</title>
+   <style>
+      canvas {
+         border: 2px solid black;
+      }
+   </style>
+</head>
+
+<body>
+   <canvas id='canvas' width="300" height="300"></canvas>
+   <script>
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'cyan';
+      ctx.fillRect(0, 0, 300, 300);
+
+      //Top half Circle
+      var grd1 = ctx.createLinearGradient(0, 0, 0, 150);
+      grd1.addColorStop(0, "red");
+      grd1.addColorStop(1, "white");
+      ctx.beginPath();
+      ctx.fillStyle = grd1;
+      ctx.arc(150, 150, 150, 0, Math.PI, 1); // check top half
+      ctx.fill();
+      ctx.stroke();
+
+      //Bottom half Circle
+      var grd2 = ctx.createLinearGradient(0, 150, 0, 300);
+      grd2.addColorStop(0, "white");
+      grd2.addColorStop(1, "red");
+      ctx.beginPath();
+      ctx.fillStyle = grd2;
+      ctx.arc(150, 150, 150, 0, Math.PI, 0); // check bottom half
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.lineWidth = "2";
+      ctx.moveTo(0, 150);
+      ctx.lineTo(150, 0);
+      ctx.lineTo(300, 150);
+      ctx.lineTo(150, 300);
+      ctx.lineTo(0, 150);
+      ctx.strokeStyle = 'blue';
+      ctx.fillStyle = 'yellow';
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.lineWidth = "2";
+      ctx.strokeStyle = 'blue';
+      ctx.font = "bold 60px sans-serif";
+      ctx.strokeText("HTML5", 52, 170);
+   </script>
+</body>
+
+</html>

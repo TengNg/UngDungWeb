@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ứng dụng web cs03</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="title">
+        <div>Ứng dụng Web</div>
+    </div>
+    <div class="main">
+        <div class="html-el">
+            <h3><a href="subject/HTML_/html.html">HTML</a></h3>
+            <div class="box html-box" onclick='window.open("subject/HTML_/html.html", "_self")'>
+                <i class="fab fa-html5"></i>
+            </div>
+        </div>
+
+        <div class="css-el">
+            <h3><a href="subject/CSS_/css.html">CSS</a></h3>
+            <div class="box css-box" onclick='window.open("subject/CSS_/css.html", "_self")'>
+                <i class="fab fa-css3-alt"></i>
+            </div>
+        </div>
+
+        <div class="js-el">
+            <h3><a href="subject/Javascript_/js.html">JavaScript</a></h3>
+            <div class="box js-box" onclick='window.open("subject/Javascript_/js.html", "_self")'>
+                <i class="fab fa-js-square"></i>
+            </div>
+        </div>
+
+        <div class="jquery-el">
+            <h3><a href="subject/Jquery_/jquery.html">JQuery</a></h3>
+            <div class="box jquery-box" onclick='window.open("subject/Jquery_/jquery.html", "_self")'>
+                {;}
+            </div>
+        </div>
+    </div>
+    <div onclick='window.open("subject/BaiTapNangCao/index.html", "_self")' class="BaiTapNangCao">BÀI TẬP NÂNG CAO</div>
+    <script>
+        const box = document.querySelectorAll('.box')
+        box.forEach(item => {
+            item.addEventListener('mousedown', () => {
+                item.classList.add('pressed')
+            })
+            item.addEventListener('mouseout', () => {
+                item.classList.remove('pressed')
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 15</title>
+   <style>
+      div:not(hr+div) {
+         background-color: lightseagreen;
+         height: 400px;
+         width: 400px;
+         display: grid;
+         place-items: center;
+         overflow: hidden;
+      }
+   </style>
+</head>
+
+<body>
+   <h1>Image Resizing</h1>
+   <hr>
+   <div>Scale
+      <input id="scale10" type="radio">10%
+      <input id="scale25" type="radio">25%
+      <input id="scale50" type="radio">50%
+      <input id="scale100" type="radio">100%
+   </div>
+   <div id='img'>This is Image</div>
+   <script>
+      document.getElementById('scale10').addEventListener('click', function (event) {
+         document.getElementById('img').style.width = "40px"
+         document.getElementById('img').style.height = "40px"
+      })
+      document.getElementById('scale25').addEventListener('click', function (event) {
+         document.getElementById('img').style.width = "100px"
+         document.getElementById('img').style.height = "100px"
+      })
+      document.getElementById('scale50').addEventListener('click', function (event) {
+         document.getElementById('img').style.width = "200px"
+         document.getElementById('img').style.height = "200px"
+      })
+      document.getElementById('scale100').addEventListener('click', function (event) {
+         document.getElementById('img').style.width = "400px"
+         document.getElementById('img').style.height = "400px"
+      })
+   </script>
+</body>
+
+</html>

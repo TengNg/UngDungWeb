@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;800&family=Poppins:wght@900&display=swap');
+
+:root {
+    --boxWidth: 200px;
+    --boxHeight: 250px;
+
+    --html-clr-0: hsl(16, 60%, 90%);
+    --html-clr-1: hsl(16, 60%, 50%);
+    --html-clr-2: hsl(16, 60%, 40%);
+    --html-clr-3: hsl(16, 60%, 30%);
+
+    --css-clr-0: hsl(240, 87%, 90%);
+    --css-clr-1: hsl(240, 87%, 58%);
+    --css-clr-2: hsl(240, 87%, 48%);
+    --css-clr-3: hsl(240, 87%, 38%);
+
+    --js-clr-0: hsl(261, 48%, 90%);
+    --js-clr-1: hsl(261, 48%, 51%);
+    --js-clr-2: hsl(261, 48%, 41%);
+    --js-clr-3: hsl(261, 48%, 31%);
+
+    --jquery-clr-0: hsl(199, 90%, 90%);
+    --jquery-clr-1: hsl(199, 90%, 32%);
+    --jquery-clr-2: hsl(199, 90%, 22%);
+    --jquery-clr-3: hsl(199, 90%, 12%);
+}
+
+* { 
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+body { 
+    letter-spacing: 3px;
+    background-image: linear-gradient(to right, rgb(152, 186, 214), rgb(152, 250, 250), rgb(152, 233, 152));
+}
+img {
+    width: 220px;
+    height: 220px;
+    transition: width 0.8s ease, height 0.3s ease;
+}
+img:hover {
+    width: 270px;
+    height: 270px;
+}
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title div {
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    border: 4px solid transparent;
+    outline: 4px solid transparent;
+    background-color: rgb(96, 180, 230);
+    color: rgb(54, 60, 141);
+    font-weight: bolder;
+    height: 100px;
+    width: 420px;
+    border-radius: 50px;
+    box-shadow: 2px 3px 0 2px hsl(225, 73%, 70%);
+    user-select: none;
+    transition: 500ms ease;
+}
+.title div:hover {
+    background-color: rgb(128, 195, 235);
+    border-color: rgb(128, 195, 235);
+    border-radius: 5px;
+    color: white;
+    font-size: 1.9rem;
+    letter-spacing: 2px;
+    cursor: default;
+    outline-color: white;
+    outline-offset: -15px;
+}
+.main {
+    display: flex;
+    overflow: none;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.main > div {
+    text-align: center;
+    height: 375px;
+    width: 280px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 5px 0;
+}
+.main div a {
+    text-decoration: none;
+    color: rgb(40, 80, 100);
+    font-family: 'JetBrains Mono', sans-serif;
+    transition: 300ms ease;
+}
+.main > div > .box {
+    height: 250px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    font-size: 8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+	font-weight: bold;
+	user-select: none;
+    cursor: pointer;
+    transition: all 0.4s ease, font-size 0.3s ease, height 0.2s ease, width 0.6s ease;
+}
+.main > div > .box:hover {
+    height: calc(var(--boxHeight) + 20px);
+    width: calc(var(--boxWidth) + 10px);
+    font-size: 8.5rem;
+    border-radius: 10px;
+    text-shadow: none;
+    -webkit-filter: brightness(1.1);
+    filter: brightness(1.1);
+}
+.html-box {
+    background-color: var(--html-clr-0);
+    color: var(--html-clr-1);
+    text-shadow: 
+	1px 1px 1px var(--html-clr-2),
+	2px 2px 1px var(--html-clr-3);
+    box-shadow: 5px 2px 0 10px var(--html-clr-2);
+}
+.css-box {
+    background-color: var(--css-clr-0);
+    color: var(--css-clr-1);
+    text-shadow: 
+	1px 1px 1px var(--css-clr-2),
+	2px 2px 1px var(--css-clr-3);
+    box-shadow: 5px 2px 0 10px var(--css-clr-1);
+}
+
+.js-box {
+    background-color: var(--js-clr-0);
+    color: var(--js-clr-1);
+    text-shadow: 
+	1px 1px 1px var(--js-clr-2),
+	2px 2px 1px var(--js-clr-3);
+    box-shadow: 5px 2px 0 10px var(--js-clr-2);
+}
+
+.jquery-box {
+    padding-bottom: 40px;
+    background-color: var(--jquery-clr-0);
+    color: var(--jquery-clr-1);
+    text-shadow: 
+	1px 1px 1px var(--jquery-clr-2),
+	2px 2px 1px var(--jquery-clr-3);
+    box-shadow: 5px 2px 0 10px var(--jquery-clr-2);
+}
+
+.pressed {
+    margin: 2px 0 0 8px;
+	box-shadow: 2px 0 0 6px;
+}
+h3 { 
+    text-align: center; 
+    font-size: 25px;
+    margin: 20px 0 10px 0;
+}
+.main div a:hover {
+    font-size: 2rem;
+    font-weight: bolder;
+    text-shadow: 1px 1px 0 rgb(30, 30, 30);
+}   
+.html-el   a:hover { color: var(--html-clr-1); }
+.css-el    a:hover { color: var(--css-clr-1); }
+.js-el     a:hover { color: var(--js-clr-1); }
+.jquery-el a:hover { color: var(--jquery-clr-1); }
+
+.BaiTapNangCao {
+    letter-spacing: 2px;
+    margin: 0 auto;
+    text-align: center;
+    width: 250px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 12px;
+    background-color: hsl(166, 51%, 56%);    
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.8rem;
+    box-shadow: 3px 3px 0 2px hsl(166, 51%, 40%);
+    transition: all 0.2s ease;
+}
+.BaiTapNangCao:hover {
+    background-color: hsl(166, 51%, 60%);    
+    color: hsl(166, 51%, 30%);
+    box-shadow: 2px 2px 0 1px hsl(166, 51%, 45%);
+    margin-top: 3px;
+}
+
+@media screen and (max-width: 1125px) {
+    .main > div {
+        height: 350px;
+        width: 240px;
+    }
+    .main > div > .box {
+        height: 220px;
+        width: 180px;
+    }
+}

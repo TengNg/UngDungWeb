@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 8</title>
+</head>
+
+<body>
+   <div>Nhập số phần tử: <input type="text" id="arr_size"></div><br>
+   <button onclick="tao_mang()">Tạo mảng</button>
+   <button onclick="sap_xep_tang()">Sắp xếp mảng tăng</button>
+   <button onclick="sap_xep_giam()">Sắp xếp mảng giảm</button>
+   <p><span id="mang_khoi_tao"></span></p>
+   <p><span id="mang_tang"></span></p>
+   <p><span id="mang_giam"></span></p>
+   <script>
+      const arrSize = document.getElementById('arr_size')
+      function randomNum(x) {
+         x = Math.floor(Math.random() * 50)
+         return x
+      }
+      let a = []
+      function tao_mang() {
+         let str = "Mảng ban đầu: "
+         if (arrSize.value > 50)
+            document.getElementById('mang_khoi_tao').innerHTML += "Nhập quá số lượng phần tử"
+         else {
+            for (let i = 0; i < arrSize.value; i++)
+               a[i] = randomNum(a[i])
+            for (let i = 0; i < arrSize.value; i++)
+               str += "<span>" + a[i] + "&nbsp;&nbsp;&nbsp;&nbsp;</span>"
+            document.getElementById('mang_khoi_tao').innerHTML = str
+         }
+      }
+      function sap_xep_tang() {
+         a.sort(function (a, b) { return a - b })
+         let str = "Mảng tăng dần: "
+         for (let i = 0; i < arrSize.value; i++)
+            str += "<span>" + a[i] + "&nbsp;&nbsp;&nbsp;&nbsp;</span>"
+         document.getElementById('mang_tang').innerHTML = str
+      }
+      function sap_xep_giam() {
+         a.sort(function (a, b) { return b - a })
+         let str = "Mảng giảm dần: "
+         for (let i = 0; i < arrSize.value; i++)
+            str += "<span>" + a[i] + "&nbsp;&nbsp;&nbsp;&nbsp;</span>"
+         document.getElementById('mang_giam').innerHTML = str
+      }
+   </script>
+</body>
+
+</html>

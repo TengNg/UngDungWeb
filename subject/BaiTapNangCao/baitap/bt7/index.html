@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <title>Bài tập 7</title>
+</head>
+
+<body>
+   <header>Công ty máy tính ABC</header>
+   <div class="navbar">
+      <div class="navbar-links">
+         <div><a href="#home-page">Trang chủ</a></div>
+         <div><a href="#about-page">Giới thiệu</a></div>
+         <div class='service-div'>
+            <a href="#service">Dịch vụ</a>
+            <div class="dropdown-content">
+               <a href="">Bảo hành</a>
+               <a href="">Đổi trả</a>
+               <a href="">Vệ sinh</a>
+               <a href="">Sửa chữa tại nhà</a>
+            </div>
+         </div>
+         <div><a href="#contact">Liên hệ</a></div>
+      </div>
+      <div class='search-bar'>
+         <form action="http://www.google.com/search" method="GET">
+            <input type="text" name='q' placeholder="Tim kiem Google">
+            <button class='search-btn' type='submit'>
+               <i class="fas fa-search"></i>
+            </button>
+         </form>
+      </div>
+   </div>
+   <div class="content-container">
+      <div class="left">
+         <div class='laptop-links'>
+            <h3 left-content>Laptop</h2>
+               <ol>
+                  <li class='laptop-card'>Acer</li>
+                  <li class='laptop-card '>Macbook</li>
+                  <li class='laptop-card'>Dell</li>
+                  <li class='laptop-card'>HP</li>
+                  <li class='laptop-card'>Tất cả sản phẩm</li>
+               </ol>
+         </div>
+         <div class='desktop-links'>
+            <h3 left-content>Desktop</h3>
+            <ol>
+               <li>CPU</li>
+               <li>LOA</li>
+               <li>HEADPHONE</li>
+               <li>SẠC</li>
+            </ol>
+         </div>
+         <div class='accessory-links'>
+            <h3 left-content>Linh kiện</h3>
+            <ol>
+               <li>A</li>
+               <li>B</li>
+               <li>C</li>
+            </ol>
+         </div>
+      </div>
+      <div class="middle">
+         <h3 class="middle-title">SẢN PHẨM NỔI BẬT</h3>
+         <div class="laptop-image-container">
+            <div class="laptop-image">
+               <h3 class="laptop-name">Acer Nitro 5 Gaming</h3>
+               <div class="image"></div>
+               <h3 class="price">Đơn giá: 32.000.000 vnd</h3>
+               <button class="purchase-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="laptop-image">
+               <h3 class="laptop-name">DELL INSPIRON 3501</h3>
+               <div class="image"></div>
+               <h3 class="price">Đơn giá: 14.600.000 vnd</h3>
+               <button class="purchase-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="laptop-image">
+               <h3 class="laptop-name">DELL VOSTRO 3400</h3>
+               <div class="image"></div>
+               <h3 class="price">Đơn giá: 15.000.000 vnd</h3>
+               <button class="purchase-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="laptop-image">
+               <h3 class="laptop-name">HP Probook 440 G8 i5</h3>
+               <div class="image"></div>
+               <h3 class="price">Đơn giá: 20.300.000 vnd</h3>
+               <button class="purchase-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="laptop-image">
+               <h3 class="laptop-name">MacBook Pro M1 2020</h3>
+               <div class="image"></div>
+               <h3 class="price">Đơn giá: 33.490.000 vnd</h3>
+               <button class="purchase-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+            <div class="laptop-image">
+               <h3 class="laptop-name">MacBook Air M1 2020</h3>
+               <div class="image"></div>
+               <h3 class="price">Đơn giá: 27.490 .000 vnd</h3>
+               <button class="purchase-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+         </div>
+      </div>
+      <div class="right">
+         <h3 class='right-title'>Siêu khuyến mãi</h3>
+         <div class='right-image'>Các sản phẩm laptop</div>
+         <div class='statistic'>
+            <h3>Thống kê truy cập</h3>
+            <div style='font-weight: bold;'><span class='access-count'>5</span>+</div>
+         </div>
+         <div class='website-link'>
+            <h3>Liên kết website</h3>
+            <div>
+               <select style='width: 100%; height: 100%; text-align: center;' name="website-links" id="website-name"
+                  placeholder="Chọn trang liên kết">
+                  <option value="" disabled selected>--Chọn trang web liên kết--</option>
+                  <option value="">Thegioididong</option>
+                  <option value="">PhongVu</option>
+                  <option value="">Hanoicomputer</option>
+                  <option value="">GearVn</option>
+               </select>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="footer">
+      <div>Công ty máy tính ABC &copy;</div>
+      <div>Địa chỉ: abcdxyz</div>
+   </div>
+   <script>
+      const accessCount = $('.access-count')
+      var count = 5
+      window.setInterval(function () {
+         accessCount.text(count)
+         count = count + Math.floor(Math.random() * 100 + 10)
+      }, 1500)
+   </script>
+   <script src='app.js'></script>
+</body>
+
+</html>

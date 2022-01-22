@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 4</title>
+   <style>
+      * {
+         font-family: 'Courier New', Courier, monospace, sans-serif;
+         font-weight: bold;
+      }
+   </style>
+</head>
+
+<body>
+   <h1>CÁC PHÉP TÍNH SỐ HỌC</h1>
+   <table border="2">
+      <tr>
+         <td>Số thứ 1: </td>
+         <td><input type="text" id="num1"></td>
+      </tr>
+      <tr>
+         <td>Số thứ 2: </td>
+         <td><input type="text" id="num2"></td>
+      </tr>
+      <tr rowspan="5">
+         <td>Chọn phép toán</td>
+         <td>
+            <input type="checkbox" id="addCheck">Cộng<br>
+            <input type="checkbox" id="subtractCheck">Trừ <br>
+            <input type="checkbox" id="powerCheck">Nhân<br>
+            <input type="checkbox" id="divideCheck">Chia
+         </td>
+      </tr>
+      <tr>
+         <td><button onclick="solve()">Thực hiện</button></td>
+         <td id="result" width="250px" height="40px"></td>
+      </tr>
+
+   </table>
+   <script>
+      let num1El = document.getElementById('num1')
+      let num2El = document.getElementById('num2')
+      let check1 = document.getElementById('addCheck')
+      let check2 = document.getElementById('subtractCheck')
+      let check3 = document.getElementById('powerCheck')
+      let check4 = document.getElementById('divideCheck')
+      let resultEl = document.getElementById('result')
+      function solve() {
+         let result = ""
+         let num1_val = parseInt(num1El.value)
+         let num2_val = parseInt(num2El.value)
+         if (isChecked(check1.checked, check2.checked, check3.checked, check4.checked))
+            result = num1_val + num2_val
+         else if (isChecked(check2.checked, check1.checked, check3.checked, check4.checked))
+            result = num1_val - num2_val
+         else if (isChecked(check3.checked, check2.checked, check1.checked, check4.checked))
+            result = num1_val * num2_val
+         else if (isChecked(check4.checked, check2.checked, check3.checked, check1.checked)) {
+            if (num2_val == 0)
+               result = "Lỗi chia 0"
+            else
+               result = num1_val / num2_val
+         }
+         else {
+            result = "Checkbox error!"
+         }
+         resultEl.innerHTML = result
+         num1El.value = ""
+         num2El.value = ""
+      }
+      function isChecked(a, b, c, d) {
+         if (a == true && b == false && c == false && d == false)
+            return true
+         return false
+      }
+   </script>
+</body>
+
+</html>

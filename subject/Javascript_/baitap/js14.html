@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 14</title>
+   <style>
+      body>div {
+         height: 400px;
+         width: 400px;
+         background-color: grey;
+         font-size: 40px;
+         line-height: 400px;
+         text-align: center;
+         margin: 0 auto;
+      }
+   </style>
+</head>
+
+<body>
+   <div onmouseover='changed(this)' onmouseout='normal(this)' id='test'>Hover Me</div>
+   <script>
+      function changed(x) {
+         x.style.backgroundColor = 'red'
+         x.innerHTML = 'Left Me'
+      }
+      function normal(x) {
+         x.style.backgroundColor = 'grey'
+         x.innerHTML = 'Hover Me'
+      }
+   </script>
+</body>
+
+</html>

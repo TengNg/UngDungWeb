@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <title>Bài tập 7</title>
+</head>
+
+<body>
+   <div class="container">
+      <div class="header">Trò chơi quay số</div>
+      <div class="nav">
+         <div><a href="index.html">Trang Chủ</a></div>
+         <div><a href="countNumbers.html">Trò chơi quay số</a></div>
+         <div><a href="countDices.html">Trò chơi quay xúc xắc</a></div>
+      </div>
+      <div class="content">
+         <div class="left">
+            <ul>
+               <li>A</li>
+               <li>B</li>
+               <li>C</li>
+               <li>D</li>
+               <li>E</li>
+               <li>F</li>
+            </ul>
+         </div>
+         <div class="middle">
+            <div class="table">
+               <h2>Đăng ký mua hàng</h2>
+               <table>
+                  <tr>
+                     <td>Họ tên</td>
+                     <td><input id='name-input' type="text"></td>
+                  </tr>
+                  <tr>
+                     <td>Email:</td>
+                     <td><input id='email-input' type="text"></td>
+                  </tr>
+                  <tr>
+                     <td>Số lượng mua:</td>
+                     <td><input id='quantity-input' type="text"></td>
+                  </tr>
+                  <tr>
+                     <td>Ngày nhận hàng:</td>
+                     <td><input id='date-input' type="text" placeholder="dd/mm/yyyy"></td>
+                  </tr>
+                  <tr id='pay'>
+                     <td>Thanh toán</td>
+                     <td>
+                        <input id='transfer-input' type="radio">Chuyển khoản
+                        <input id='delivery-input' type="radio">Trực tiếp khi giao hàng
+                     </td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <td>
+                        <button id='submit-btn'>Đăng ký mua</button>
+                        <button id='delete-btn'>Xoá</button>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+            <div style="text-align: center" id='result'></div>
+         </div>
+         <div class="right">
+            <div class="ad">Vùng quảng cáo 1</div>
+            <div class="ad">Vùng quảng cáo 2</div>
+         </div>
+      </div>
+      <div class="footer">Bài thực hành ứng dụng web</div>
+   </div>
+   <script>
+      const nameInput = document.getElementById('name-input')
+      const emailInput = document.getElementById('email-input')
+      const quantityInput = document.getElementById('quantity-input')
+      const dateInput = document.getElementById('date-input')
+      const transferInput = document.getElementById('transfer-input')
+      const deliveryInput = document.getElementById('delivery-input')
+
+      const submitButton = document.getElementById('submit-btn')
+      const deleteButton = document.getElementById('delete-btn')
+      submitButton.addEventListener('click', function () {
+         let str = ""
+         if (nameInput.value == "")
+            str += "Họ không được để trống<br>"
+
+         if (emailInput.value == "")
+            str += "Email không được bỏ trống<br>"
+         else if (emailInput.value.includes('@') == false)
+            str += "Email phải chứa ký tự @<br>"
+
+         if (quantityInput.value == "")
+            str += "Sô lượng không được để trống và phải lớn hơn 0<br>"
+
+         if (dateInput.value == "")
+            str += "Ngày không được bỏ trống<br>"
+
+         if (transferInput.checked == false && deliveryInput.checked == false)
+            str += "Bạn phải chọn một kiểu thanh toán"
+
+         document.getElementById('result').innerHTML = str
+
+         nameInput.value = ""
+         emailInput.value = ""
+         quantityInput.value = ""
+         dateInput.value = ""
+         transferInput.checked = false
+         deliveryInput.checked = false
+      })
+
+      deleteButton.addEventListener('click', function () {
+         nameInput.value = ""
+         emailInput.value = ""
+         quantityInput.value = ""
+         dateInput.value = ""
+         transferInput.checked = false
+         deliveryInput.checked = false
+         document.getElementById('result').innerHTML = ""
+      })
+
+   </script>
+</body>
+
+</html>

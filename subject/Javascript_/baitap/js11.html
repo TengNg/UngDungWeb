@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 11</title>
+</head>
+
+<body>
+   <h1>String Statistic</h1>
+   <table>
+      <tr>
+         <td>String: </td>
+         <td><input type="text" id="text"></td>
+      </tr>
+      <tr>
+         <td></td>
+         <td><button onclick="statistic()">Statistic</button></td>
+      </tr>
+      <tr>
+         <td></td>
+         <td>
+            <p id="result"></p>
+         </td>
+      </tr>
+   </table>
+   <script>
+      let textStr = document.getElementById('text')
+      let resultEl = document.getElementById('result')
+      function statistic() {
+         // let string = textStr.value
+         // let char_array = s.split("")
+         // let c = char_array.toUpperCase().sort()
+         // for (let i = 0; i < c.length; i++) {
+         //    if (c[i] != " ") {
+         //       let count = 1;
+         //       for (let j = i + 1; j < c.length; j++) {
+         //          if (c[i] == c[j]) {
+         //             c.splice(i, 1)
+         //             count++
+         //             j--
+         //          }
+         //       }
+         //       str += "Character '" + c[i] + "': " + count + "<br>"
+         //    }
+         // }
+         // resultEl.innerHTML = str
+         let result = ""
+         const str = textStr.value
+         result += 'Characters: ' + str.split('').length + '<br>'
+         result += "Words: " + str.trim().split(/\s+/).length + '<br>'
+         const characters = str.split("")
+         characters.forEach(word => {
+            if (word === ' ')
+               characters.splice(characters.indexOf(word), 1)
+         })
+         const filter = characters.reduce((char, index) => {
+            char[index] = (char[index] == null) ? 1 : char[index] + 1
+            return char
+         }, {})
+         for (key in filter)
+            result += "Character " + key + ": " + filter[key] + '<br>'
+         resultEl.innerHTML = result;
+      }
+
+   </script>
+</body>
+
+</html>

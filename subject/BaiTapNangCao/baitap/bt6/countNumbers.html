@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="style.css">
+   <title>Trò chơi quay số</title>
+   <style>
+      .middle {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+      }
+
+      .numDiv {
+         display: flex;
+         width: 100%;
+         justify-content: center;
+      }
+
+      .numDiv>div {
+         height: 250px;
+         width: 250px;
+         border: 3px solid black;
+         margin: 10px;
+         text-align: center;
+         line-height: 250px;
+         font-size: 4rem;
+         font-weight: bold;
+         text-shadow: 2px 5px 5px grey;
+         background-color: lightgrey;
+         color: blue;
+      }
+
+      button {
+         padding: 5px;
+         border: none;
+         background-color: darkred;
+         color: white;
+         font-weight: bold;
+         border-radius: 5px;
+         cursor: pointer;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <div class="header">Trò chơi quay số</div>
+      <div class="nav">
+         <div><a href="bt06.html">Trang Chủ</a></div>
+         <div><a href="countNumbers.html">Trò chơi quay số</a></div>
+         <div><a href="countDices.html">Trò chơi quay xúc xắc</a></div>
+      </div>
+      <div class="content">
+         <div class="left">
+            <ul>
+               <li>A</li>
+               <li>B</li>
+               <li>C</li>
+               <li>D</li>
+               <li>E</li>
+               <li>F</li>
+            </ul>
+         </div>
+         <div class="middle">
+            <div class="numDiv">
+               <div id="numDiv1"></div>
+               <div id="numDiv2"></div>
+               <div id="numDiv3"></div>
+            </div>
+            <button id='spin-btn'>Quay số</button> <br> <br>
+            <div style="height: 10px; font-size: 2rem; color: red;" id='sum'></div>
+         </div>
+         <div class="right">
+            <div class="ad">Vùng quảng cáo 1</div>
+            <div class="ad">Vùng quảng cáo 2</div>
+         </div>
+      </div>
+      <div class="footer">Bài thực hành ứng dụng web</div>
+   </div>
+   <script>
+      const num1 = $('#numDiv1')
+      const num2 = $('#numDiv2')
+      const num3 = $('#numDiv3')
+      const spinButton = document.getElementById('spin-btn')
+      const sumResult = document.getElementById('sum')
+      spinButton.addEventListener('click', function () {
+         let num1_val = Math.floor(Math.random() * 10) + 1
+         let num2_val = Math.floor(Math.random() * 10) + 1
+         let num3_val = Math.floor(Math.random() * 10) + 1
+         num1.text(num1_val)
+         num2.text(num2_val)
+         num3.text(num3_val)
+         sumResult.innerText = num1_val + num2_val + num3_val
+      })
+   </script>
+</body>
+
+</html>

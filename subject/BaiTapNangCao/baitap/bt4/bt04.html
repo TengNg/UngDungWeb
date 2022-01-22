@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <title>Bài tập 4</title>
+   <style>
+      * {
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         padding: 0;
+         margin: 0;
+      }
+
+      .container {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+      }
+
+      div:not(.container):not(.container div) {
+         display: flex;
+         justify-content: center;
+         margin: 10px;
+      }
+
+      button {
+         margin: 10px;
+         height: 40px;
+         width: 100px;
+         font-weight: bold;
+      }
+
+      .board {
+         width: 1000px;
+         height: 400px;
+         border: 2px solid black;
+         position: relative;
+         padding-left: 10px;
+         margin: 20px;
+      }
+
+      .board div {
+         border: 3px solid black;
+         position: absolute;
+         height: 100px;
+         width: 100px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         font-weight: bold;
+      }
+
+      #horse {
+         top: 15px;
+      }
+
+      #turtle {
+         top: calc(33% + 15px)
+      }
+
+      #hare {
+         top: calc(66% + 15px)
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <h1>Cuộc đua kì thú</h1>
+      <h3>Ngựa - Rùa - Thỏ</h3>
+      <h3>Kết quả <span id='result'></span></h3>
+      <div id="board" class="board">
+         <div class='racer' id='horse'>Horse</div>
+         <div class='racer' id='turtle'>Turtle</div>
+         <div class='racer' id='hare'>Hare</div>
+      </div>
+   </div>
+   <div class='abcd'>
+      <button id="play">Play</button>
+      <button id="stop">Stop</button>
+      <button id="reset">Reset</button>
+   </div>
+   <script>
+      const board = $('.board')
+
+      const horse = $('#horse')
+      const turtle = $('#turtle')
+      const hare = $('#hare')
+
+      const racer = $('board div')
+
+      const boardHeight = board.height()
+      const boardWidth = board.width()
+
+      const divWidth = $('.board div').innerWidth()
+      const divHeight = $('.board div').innerHeight()
+
+      const playButton = document.getElementById('play')
+      const stopButton = document.getElementById('stop')
+      const resetButton = document.getElementById('reset')
+      const result = document.querySelector('#result')
+
+      var timer = null
+
+      var playButtonClicked = 0
+
+      playButton.addEventListener('click', function () {
+         playButtonClicked++
+         if (playButtonClicked == 1)
+            timer = setInterval(Start, 100)
+      })
+
+      stopButton.addEventListener('click', function () {
+         playButtonClicked = 0
+         clearInterval(timer)
+         timer = null
+      })
+
+      resetButton.addEventListener('click', function () {
+         horse.css("left", 10, "px")
+         turtle.css("left", 10, "px")
+         hare.css("left", 10, "px")
+         playButtonClicked = 0
+         clearInterval(timer)
+         timer = null
+      })
+
+      function Start() {
+         if (timer != null) {
+            var vHorse = Math.floor(Math.random() * 20) + 5;
+            var vTurtle = Math.floor(Math.random() * 20) + 5;
+            var vHare = Math.floor(Math.random() * 20) + 5;
+
+            var horseStartPoint = parseInt(horse.css("left"))
+            var turtleStartPoint = parseInt(turtle.css("left"))
+            var hareStartPoint = parseInt(hare.css("left"))
+
+            horseRoad = horseStartPoint + vHorse
+            turtleRoad = turtleStartPoint + vTurtle
+            hareRoad = hareStartPoint + vHare
+
+            horse.css("left", horseRoad + "px")
+            turtle.css("left", turtleRoad + "px")
+            hare.css("left", hareRoad + "px")
+
+            if (horseRoad >= boardWidth - divWidth) {
+               horse.css("left", boardWidth - divWidth + "px")
+               result.textContent = "ngựa thắng"
+               clearInterval(timer)
+               timer = null
+            }
+            if ((hareRoad >= boardWidth - divWidth)) {
+               hare.css("left", boardWidth - divWidth + "px")
+               result.textContent = "thỏ thắng"
+               clearInterval(timer)
+               timer = null
+            }
+            if (turtleRoad >= boardWidth - divWidth) {
+               turtle.css("left", boardWidth - divWidth + "px")
+               result.textContent = "rùa thắng"
+               clearInterval(timer)
+               timer = null
+            }
+         }
+      }
+
+   </script>
+</body>
+
+</html>

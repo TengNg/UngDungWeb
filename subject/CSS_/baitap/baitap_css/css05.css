@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+table {
+  width: 60%;
+  height: 50%;
+  font-size: xx-large;
+  border: 2px solid black;
+  margin: 0 auto;
+}
+.head {
+  background: grey;
+  color: white;
+}
+/* .row1 {
+  background: #e0dede;
+}
+.row2 {
+  background: #c4c0c0;
+} */
+tr:nth-of-type(even) {
+  background: #e0dede;
+}
+tr:nth-of-type(odd) {
+  background: #c4c0c0;
+}

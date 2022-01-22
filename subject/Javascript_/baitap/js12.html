@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 12</title>
+   <style>
+      #title {
+         height: 100px;
+         border: 2px solid black;
+         text-align: center;
+         line-height: 100px;
+         color: lightgrey;
+         font-family: sans-serif;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="style-title">
+      <h1 id="title">Trang trí khung</h1>
+   </div>
+   <div>Nhập nội dung: <input type="text" id="text"></div>
+   <br>
+   <div>Màu nền:
+      <input id='bg-color' value="#DE1F1F" type="color">
+   </div> <br>
+   <div>Màu chữ:
+      <input id='text-color' value='#ECCD61' type="color">
+   </div> <br>
+   <button onclick='execute()'>Thực hiện</button>
+   <script>
+      const textColor = document.getElementById('text-color')
+      const bgColor = document.getElementById('bg-color')
+      function execute() {
+         let string = document.getElementById('text')
+         document.getElementById('style-title').style.backgroundColor = bgColor.value
+         document.getElementById('title').style.color = textColor.value
+         document.getElementById('title').style.textAlign = 'center'
+         document.getElementById('title').innerHTML = string.value
+      }
+   </script>
+</body>
+
+</html>

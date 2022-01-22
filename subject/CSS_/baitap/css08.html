@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 8</title>
+    <style>
+        * {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: grey;
+        }
+
+        .active {
+            color: powderblue;
+            text-decoration: none;
+            font-size: 30px;
+            padding: 14px;
+            text-shadow: black 5px 5px 4px;
+        }
+
+        .active:hover {
+            color: white;
+            font-style: italic;
+            background: lightgray;
+            text-shadow: white 0 0 0;
+        }
+
+        .menu {
+            overflow: hidden;
+            width: 100%;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+        }
+
+        .menu a {
+            position: relative;
+            color: white;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+            width: 20%;
+            font-weight: bold;
+            left: 40px;
+        }
+
+        #login {
+            font-size: 30px;
+            font-weight: bold;
+            color: rgb(144, 236, 167);
+            text-decoration: none;
+            padding: 14px;
+        }
+
+        .menu a:hover,
+        #login:hover {
+            background-color: lightgray;
+            color: black;
+        }
+
+        h1 {
+            color: green;
+        }
+
+        h1:hover {
+            color: rgb(80, 206, 133);
+        }
+
+        button {
+            padding-top: 6px;
+            padding-bottom: 6px;
+            border: none;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 20px;
+            height: 80px;
+            width: 160px;
+            background-color: lightseagreen;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: lightskyblue;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="font-size:60px; font-weight:bold;">Diễn đàn học lập trình</h1>
+
+    <div id="wrapper">
+        <div><a class="active" href="http://cunghoclaptrinh.com" target="_blank">cungghoclaptrinh.com</a></div>
+        <div class="menu">
+            <a href="../../HTML_/html.html" target="_blank">HTML</a>
+            <a href="../../CSS_/css.html" target="_blank">CSS</a>
+            <a href="../../Javascript/js.html" target="_blank">JavaScript</a>
+        </div>
+        <div><a id="login" href="#">Login</a></div>
+
+    </div>
+    <p><b>Vui lòng click nút <span>Đăng Ký</span> để tham gia khóa học</b></p>
+    <button onclick="">Đăng ký</button>
+</body>
+
+</html>

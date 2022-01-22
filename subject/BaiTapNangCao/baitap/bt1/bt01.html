@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 1</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+   <style>
+      * {
+         padding: 0;
+         margin: 0;
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .container {
+         border: 2px solid black;
+         padding: 10px;
+      }
+
+      .container>p {
+         margin: 15px;
+      }
+
+      table td {
+         padding: 5px;
+      }
+   </style>
+</head>
+
+<body>
+   <h1>Tìm kiếm và thay thế</h1>
+   <table>
+      <tr>
+         <td>Nhập chuỗi cần tìm: </td>
+         <td><input id='input-string' type="text" placeholder="Nhập chuỗi cần tìm"></td>
+         <td><input id='checkbox' type="checkbox"> Có phân biệt chữ hoa</td>
+      </tr>
+      <tr>
+         <td>Nhập chuỗi thay thế: </td>
+         <td><input id='replace-string' type="text" placeholder="Nhập chuỗi thay thế"></td>
+      </tr>
+      <tr>
+         <td><button id='replace-btn'>Tìm và thay thế</button></td>
+      </tr>
+      <tr>
+         <td><button id='reset-btn'>Khôi phục</button></td>
+      </tr>
+   </table> <br> <br>
+   <div class="container">
+      <h2>Chương 1. HTML</h2>
+      <p class='pHTML'>HTML là một ngôn ngữ đánh dấu siêu văn bản, được dùng để tạo ra hầu hết các trang web</p>
+      <h2>Chương 2. CSS</h2>
+      <p class='pCSS'>CSS là một ngôn ngữ định kiểu, một bộ quy tắc để mô tả cách hiển thị của các đối tượng trên trang
+         web
+      </p>
+      <h2>Chương 3. JAVASCRIPT</h2>
+      <p class='pJS'>Javascript là một ngôn ngữ lập trình xử lý trang web động phía client</p>
+      <h2>Chương 4. JQUERY</h2>
+      <p class='pJQ'>jQuery là một thư viện các hàm JavaScript giúp nhà phát triển giảm thiểu số lượng mã lệnh khi viết
+         code với JavaScript</p>
+   </div>
+   <script>
+      const replaceButton = document.getElementById('replace-btn')
+      const resetButton = document.getElementById('reset-btn')
+
+      const string_input = document.getElementById('input-string')
+      const string_replace = document.getElementById('replace-string')
+
+      const checkbox = document.getElementById('checkbox')
+
+      const text_HTML = $('.pHTML')
+      const text_CSS = $('.pCSS')
+      const text_JS = $('.pJS')
+      const text_JQ = $('.pJQ')
+
+      const current_text_1 = text_HTML.text()
+      const current_text_2 = text_CSS.text()
+      const current_text_3 = text_JS.text()
+      const current_text_4 = text_JQ.text()
+
+      let new_text_HTML = ""
+      let new_text_CSS = ""
+      let new_text_JS = ""
+      let new_text_JQ = ""
+
+      replaceButton.addEventListener('click', function () {
+         let textHTML = text_HTML.text()
+         let textCSS = text_CSS.text()
+         let textJS = text_JS.text()
+         let textJQ = text_JQ.text()
+
+         var inputVal = string_input.value
+
+         if (!checkbox.checked) {
+            let searchStr = string_input.value;
+            inputVal = new RegExp(searchStr, "ig")
+         }
+         new_text_HTML = textHTML.replaceAll(inputVal, string_replace.value)
+         new_text_CSS = textCSS.replaceAll(inputVal, string_replace.value)
+         new_text_JS = textJS.replaceAll(inputVal, string_replace.value)
+         new_text_JQ = textJQ.replaceAll(inputVal, string_replace.value)
+
+         text_HTML.text(new_text_HTML)
+         text_CSS.text(new_text_CSS)
+         text_JS.text(new_text_JS)
+         text_JQ.text(new_text_JQ)
+
+         string_input.value = ""
+         string_replace.value = ""
+      })
+
+      resetButton.addEventListener('click', function () {
+         document.querySelector('.pHTML').innerHTML = current_text_1
+         document.querySelector('.pCSS').innerHTML = current_text_2
+         document.querySelector('.pJS').innerHTML = current_text_3
+         document.querySelector('.pJQ').innerHTML = current_text_4
+         string_input.value = ""
+         string_replace.value = ""
+         checkbox.checked = false
+      })
+   </script>
+</body>
+
+</html>

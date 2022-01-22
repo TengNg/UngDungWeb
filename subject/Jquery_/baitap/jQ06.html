@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <title>Bài tập 6</title>
+   <style>
+      #border-box {
+         width: 600px;
+         height: 300px;
+         position: relative;
+         border: 2px solid black
+      }
+
+      #box {
+         height: 100px;
+         width: 200px;
+         border: 1px solid black;
+         background-color: red;
+         position: absolute;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="" id="border-box">
+      <div id='box'></div>
+   </div>
+   <button id='btn-right'>Move right</button>
+   <button id='btn-left'>Move left</button>
+   <button id='btn-up'>Move up</button>
+   <button id='btn-down'>Move down</button>
+   <script>
+      const box = $('#box')
+      const borderBox = $('#border-box')
+      $(document).ready(function () {
+         $('#btn-right').click(function () {
+            var left = borderBox.width() - box.width()
+            $('#box').animate({
+               left: left
+            })
+         });
+         $('#btn-left').click(function () {
+            $('#box').animate({
+               left: '0'
+            })
+         });
+         $('#btn-up').click(function () {
+            var right
+            $('#box').animate({
+               top: '0'
+            })
+         });
+         $('#btn-down').click(function () {
+            var down = borderBox.height() - box.height()
+            $('#box').animate({
+               top: down
+            })
+         });
+      })
+   </script>
+</body>
+
+</html>

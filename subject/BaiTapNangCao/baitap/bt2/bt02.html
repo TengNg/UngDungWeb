@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <title>Bài tập 2</title>
+   <style>
+      * {
+         padding: 0;
+         margin: 0;
+      }
+
+      #frame {
+         position: relative;
+         border: 3px solid grey;
+         background-color: lightgray;
+         height: 400px;
+         width: 600px;
+         margin: 0 auto;
+      }
+
+      #ball {
+         position: absolute;
+
+         height: 50px;
+         width: 50px;
+         border-radius: 100%;
+         background-image: linear-gradient(to right, hsl(0, 83%, 60%), hsl(0, 83%, 70%), hsl(0, 83%, 80%));
+      }
+
+      button {
+         background-color: hsl(0, 90%, 73%);
+         border-radius: 5px;
+         border: none;
+         color: white;
+         cursor: pointer;
+         font-weight: bold;
+         height: 45px;
+         margin: 10px;
+         padding-bottom: 5px;
+         padding-top: 5px;
+         position: relative;
+         top: 400px;
+         width: 100px;
+         transition: 0.4s ease;
+      }
+
+      button:hover {
+         background-color: hsl(0, 90%, 65%);
+      }
+   </style>
+</head>
+
+<body>
+   <div id='frame'>
+      <div id='ball'></div>
+      <button id='stop-btn'>Stop</button>
+      <button id="play-btn">Play</button>
+      <button id="reset-btn">Reset</button>
+   </div>
+
+   <script>
+      var ballWidth
+      var ballHeight
+      var dx = 10;
+      var dy = 10;
+      function Start() {
+         ballWidth = $('#ball').width()
+         ballHeight = $('#ball').height()
+         var frameW = $('#frame').innerWidth()
+         var frameH = $('#frame').innerHeight()
+
+         var ballLeft = parseInt($('#ball').css("left"));
+         var ballTop = parseInt($('#ball').css("top"));
+
+         if (ballLeft < 0 + ballWidth || (ballLeft + ballWidth) >= frameW)
+            dx = -dx
+         if (ballTop < 0 + ballHeight || (ballTop + ballHeight) >= frameH)
+            dy = -dy
+         $('#ball').css("left", ballLeft + dx + "px")
+         $('#ball').css("top", ballTop + dy + "px")
+      }
+      let timer = null
+      let click = 0
+      document.getElementById('play-btn').addEventListener('click', function () {
+         click++
+         if (click == 1)
+            timer = setInterval(Start, 100)
+      })
+      document.getElementById('stop-btn').addEventListener('click', function () {
+         clearInterval(timer)
+         timer = null
+         click = 0
+      })
+      document.getElementById('reset-btn').addEventListener('click', function () {
+         const ball = document.getElementById('ball')
+         ball.style.left = '0'
+         ball.style.top = '0'
+         clearInterval(timer)
+         timer = null
+         click = 0
+      })
+   </script>
+</body>
+
+</html>

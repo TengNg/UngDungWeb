@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <title>Bài tập 8</title>
+   <style>
+      * {
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .container {
+         display: flex;
+      }
+
+      .left,
+      .right {
+         width: 50%;
+         margin: 20px;
+         background-color: rgb(250, 212, 219);
+         min-height: 300px;
+      }
+
+      .right {
+         line-height: 300px;
+      }
+
+      #view {
+         text-align: center;
+         font-size: 3rem;
+         font-weight: bold;
+         letter-spacing: 10px;
+         color: blue;
+      }
+
+      ol li {
+         background-color: cyan;
+         font-size: 1.2rem;
+      }
+
+      ol li:nth-child(odd) {
+         background-color: rgb(209, 88, 247);
+      }
+
+      .text-shadow {
+         text-shadow: 10px 10px 5px grey;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <div class="left">
+         <fieldset>
+            <legend>Chọn</legend>
+            <input type="radio" id='no-shadow'>Chữ bình thường <br>
+            <input type="radio" id='get-shadow'>Chữ có bóng
+            <p>Chọn màu chữ:
+               <input type="color" value='#0000ff' id='text-color'> <br> <br>
+               <button id='del-btn'>Xóa phần tử cuối</button>
+               <button id='res-btn'>Phục hồi</button>
+            </p>
+         </fieldset>
+         <fieldset>
+            <legend>Click vào một chuỗi</legend>
+            <ol>
+               <li>HTML</li>
+               <li>CSS</li>
+               <li>JAVASCRIPT</li>
+               <li>JQUERY</li>
+            </ol>
+         </fieldset>
+      </div>
+      <div class="right" id='view'>CSS</div>
+   </div>
+   <script>
+      $(document).ready(function () {
+         $('ol>li').click(function () {
+            $('#view').text($(this).text())
+         })
+
+         $('#get-shadow').click(function () {
+            $('#view').addClass('text-shadow')
+         })
+         $('#no-shadow').click(function () {
+            $('#view').removeClass('text-shadow')
+         })
+         $('#text-color').change(function () {
+            $('#view').css('color', $(this).val())
+         })
+
+         var store_array = []
+         $('#del-btn').click(function () {
+            var text = $('ol li:last').text()
+            if (text !== "") {
+               store_array.unshift(text)
+               $('ol li:last').remove()
+            }
+         })
+         $('#res-btn').click(function () {
+            if (store_array.length == 0)
+               return
+            var item = "<li>" + store_array.shift() + "</li>"
+            $('ol').append(item)
+         })
+      })
+   </script>
+</body>
+
+</html>

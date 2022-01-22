@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 5</title>
+   <link rel="stylesheet" href="style.css">
+   <script>
+      var message = "-HTML-JAVASCRIPT-"
+      var i = 0
+      function scroll() {
+         let n = message.length
+         document.getElementById('text2').innerHTML = message.substr(n - i, i) + message.substr(0, n - i)
+         document.getElementById('text1').innerHTML = message.substr(i, n) + message.substr(0, i)
+         i++
+         if (i == message.length)
+            i = 0
+      }
+      window.setInterval("scroll()", 500)
+   </script>
+   <style>
+      div {
+         border: 1px solid black;
+         background-color: lightblue;
+         height: fit-content;
+         width: fit-content;
+         display: flex;
+         justify-content: center;
+      }
+
+      p {
+         font-size: 100px;
+      }
+   </style>
+</head>
+
+<body onload="scroll();">
+   <div>
+      <p id="text1"></p>
+   </div>
+   <div>
+      <p id="text2"></p>
+   </div>
+</body>
+
+</html>

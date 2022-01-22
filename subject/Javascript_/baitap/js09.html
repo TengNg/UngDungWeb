@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 9</title>
+</head>
+
+<body>
+   <h1>THAY THẾ CHUỖI</h1>
+   <table>
+      <tr>
+         <td>Chuỗi ban đầu: </td>
+         <td><input type="text" id="string"></td>
+      </tr>
+      <tr>
+         <td>Chuỗi bị thay thế: </td>
+         <td><input type="text" id='str1'></td>
+      </tr>
+      <tr>
+         <td>Chuỗi thay thế: </td>
+         <td><input type="text" id='str2'></td>
+      </tr>
+      <tr>
+         <td></td>
+         <td><button onclick="replaceString()">Thực hiện</button></td>
+      </tr>
+   </table>
+   <script>
+      let str1_el = document.getElementById('str1')
+      let str2_el = document.getElementById('str2')
+      let string = document.getElementById('string')
+      function replaceString() {
+         console.log(string.value)
+         string.value = (string.value).replaceAll(str1_el.value, str2_el.value)
+      }
+   </script>
+</body>
+
+</html>

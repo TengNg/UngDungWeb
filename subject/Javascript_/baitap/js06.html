@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 6</title>
+   <script>
+      function bangcuuchuong() {
+         document.write("<table border=1 width=50%>")
+         document.write("<tr>")
+         for (i = 2; i <= 5; i++) {
+            document.write("<td>")
+            for (n = 1; n <= 9; n++) {
+               document.write('<li style="list-style-type:none">' + i + "x" + n + "=" + (n * i) + "</li>");
+            }
+            document.write("</td>")
+         }
+         document.write("</tr>")
+
+         for (i = 6; i <= 9; i++) {
+            document.write("<td>")
+            for (n = 1; n <= 9; n++) {
+               document.write('<li style="list-style-type:none">' + i + "x" + n + "=" + (n * i) + "</li>");
+            }
+            document.write("</td>")
+         }
+         document.write("</tr>")
+         document.write("</table>")
+      }
+   </script>
+</head>
+
+<body onload="bangcuuchuong()">
+</body>
+
+</html>

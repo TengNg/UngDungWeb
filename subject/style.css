@@ -1,0 +1,81 @@
+* { font-family: Arial, Helvetica, sans-serif; }
+
+a { 
+    text-decoration: none; 
+    font-size: 1.8rem;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 + a {
+    margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(85, 81, 81);
+}
+
+h1 + a:hover {
+    text-decoration: underline;
+}
+
+ol { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    font-size: x-large; 
+    width: 80%;
+    height: 300px;
+    border: 6px solid white;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+li { 
+    width: 250px;
+    list-style: none;
+    text-align: center;
+    position: relative;
+}
+
+li a { 
+    font-weight: bold;
+    color: inherit;
+}
+
+li a::after {
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    transform: scale(0);
+    transition: 0.25s ease-out;
+} 
+li a:hover::after {
+    transform: scale(0.55);
+}
+h1 {
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 
+    0.5px 0.5px 0 white,
+    1px 1px 0 rgba(0, 0, 0, 0.6);
+    user-select: none;
+    font-size: 2.5rem;
+    transition: all 0.4s ease;
+}
+
+h1 + a {
+    color: ;
+}
+
+h1:hover { opacity: 0.8; letter-spacing: 3px; }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bài tập 3</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <style>
+      div {
+         height: 100px;
+         width: 100px;
+         float: left;
+         margin: 10px;
+      }
+   </style>
+</head>
+
+<body>
+   <h2>Click lên các hình vuông</h2>
+   <div style='background-color: blue;'></div>
+   <div style='background-color: red;'></div>
+   <div style='background-color: purple;'></div>
+   <div style='background-color: green;'></div>
+   <h3 id='result' style='clear:left'></h3>
+   <script>
+      $('div').click(function () {
+         var color = $(this).css('background-color')
+         var name = ''
+         switch (color) {
+            case 'rgb(255, 0, 0)': name = "Đỏ"; break;
+            case 'rgb(0, 0, 255)': name = "Xanh"; break;
+            case 'rgb(128, 0, 128)': name = "Tím"; break;
+            case 'rgb(0, 128, 0)': name = "Xanh lá"; break;
+         }
+         $('#result').text('Màu bạn chọn là màu ' + name + ": " + color)
+         $('#result').css({ 'color': color, 'font-weight': 'bold' })
+      })
+   </script>
+</body>
+
+</html>

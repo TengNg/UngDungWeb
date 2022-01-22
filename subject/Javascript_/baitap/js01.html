@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <title>Bài tập 1</title>
+   <script>
+      function tinhTuoi() {
+         var inputEl1 = document.getElementById('input-el1').value
+         var inputEl2 = document.getElementById('input-el2').value
+         document.getElementById('name').innerHTML = "Chào bạn " + inputEl1
+         document.getElementById('age').innerHTML = "Tuổi của bạn là " + inputEl2
+         document.getElementById('input-el1').value = ""
+         document.getElementById('input-el2').value = ""
+      }
+   </script>
+   <style>
+      table {
+         border: 1px solid black;
+      }
+   </style>
+</head>
+
+<body>
+   <h1>Chương trình tính tuổi</h1>
+   <table border="2">
+      <tr>
+         <td>Nhập vào tên của bạn</td>
+         <td><input type="text" id="input-el1"></td>
+      </tr>
+      <tr>
+         <td>Nhập vào tuổi của bạn</td>
+         <td><input type="text" id="input-el2"></td>
+      </tr>
+   </table> <br>
+   <button onclick="tinhTuoi()">Tính Tuổi</button>
+   <p id="name"></p>
+   <p id="age"></p>
+</body>
+
+</html>
